@@ -13,11 +13,12 @@ public class DevTest {
         double constrained = 0; // must be between 100 and 10000
         String SSN = " ";
 
-/*
+
+
         firstName = getNonZeroLenString(in, "Enter your first name");
 
-        System.out.println("Fname is " + firstName);
-        double salary = 0;
+
+
 
 
 
@@ -28,21 +29,31 @@ public class DevTest {
         System.out.println("your said your age is " + age);
 
         salary = getDouble(in, "Enter your salary");
+
         System.out.println("Salary is " + salary);
+
+
 
 
         favNum = getRangedInt(in, "favorite number", 1, 10);
         System.out.println("Your favorite number is: " + favNum);
 
 
+
+
+
         constrained = getRangedDouble(in, "Enter the constrained double", 100, 10000);
         System.out.println("Constrained is" + constrained);
+
+
 
         boolean wantToQuit = getYNConfirm(in, "Do you want to quit");
         System.out.println(wantToQuit);
 
- */
-      SSN = getRegExString(in, "Enter your SSN", "^\\d{3}-\\d{2}-\\d{4}$: ");
+
+      SSN = getRegExString(in, "Enter your SSN", "^\\d{3}-\\d{2}-\\d{4}$");
+
+
     }
 
     public static String getNonZeroLenString(Scanner pipe, String prompt) {
@@ -166,7 +177,7 @@ public class DevTest {
 
         do {
             System.out.print(prompt + "[ " + low + " - " + high + "]: ");
-            if (pipe.hasNextInt()) {
+            if (pipe.hasNextDouble()) {
                 retVal = pipe.nextDouble();
                 pipe.nextLine();
                 if (retVal >= low && retVal <= high) {
@@ -196,21 +207,22 @@ public class DevTest {
      */
     public static boolean getYNConfirm(Scanner pipe, String prompt)
     {
-        String YNResponse = "";
+        String YNResponse = " ";
 
         boolean retVal = false;
         boolean done = false;
 
         do {
-            System.out.print(prompt + ":");
+            System.out.print(prompt + ": ");
             YNResponse = pipe.nextLine();
-            retVal = pipe.hasNextBoolean();
+
 
             if (!YNResponse.matches("[YyNn]"))
             {
-                System.out.print("You must enter [Y/N]: ");
+                System.out.println("You must enter [Y/N]: ");
             }
-            else {
+            else
+            {
                 done = true;
                 switch (YNResponse) {
                     case "Y":
@@ -252,5 +264,6 @@ public class DevTest {
         }while (!done);
 return retVal;
     }
+
 
 }

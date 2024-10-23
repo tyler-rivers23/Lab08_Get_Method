@@ -63,7 +63,6 @@ public class SafeInput {
         boolean done = false;
         double salary = 0;
         String trash = "";
-        salary = getDouble(pipe, "Enter your salary");
         do {
             System.out.print(prompt + ": ");
             if (pipe.hasNextDouble()) {
@@ -143,7 +142,7 @@ public class SafeInput {
 
         do {
             System.out.print(prompt + "[ " + low + " - " + high + "]: ");
-            if (pipe.hasNextInt()) {
+            if (pipe.hasNextDouble()) {
                 retVal = pipe.nextDouble();
                 pipe.nextLine();
                 if (retVal >= low && retVal <= high) {
@@ -173,7 +172,6 @@ public class SafeInput {
         {
             System.out.print(prompt + ":");
             YNResponse = pipe.nextLine();
-            retVal = pipe.hasNextBoolean();
 
             if(!YNResponse.matches("[YyNn]"))
             {
